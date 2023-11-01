@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1></h1>
+    <h2>          </h2>
+    <link rel="stylesheet" type="text/css" href="Calci.css">
+    <!--<style>
+        input[type="text"] {
+            width: 200%;
+        }
+        input[type="button"] {
+            width: 25%;
+        }
+    </style> -->
+</head>
+<body>
+    <div  id="calculator-container" class="calculator light-mode">
+    <div id="calculator-container" class="calculator">
+    <div class="calculator">
+        <input type="text" id="display" disabled background-color:#028b3d;>
+        <br>
+        <input type="button" value="1" class="calculator-button numbers" onclick="appendToDisplay('1')">
+        <input type="button" value="2" class="calculator-button numbers" onclick="appendToDisplay('2')">
+        <input type="button" value="3" class="calculator-button numbers" onclick="appendToDisplay('3')">
+        <br>
+        <input type="button" value="4" class="calculator-button numbers" onclick="appendToDisplay('4')">
+        <input type="button" value="5" class="calculator-button numbers" onclick="appendToDisplay('5')">
+        <input type="button" value="6" class="calculator-button numbers" onclick="appendToDisplay('6')">
+        <br>
+        <input type="button" value="7" class="calculator-button numbers" onclick="appendToDisplay('7')">
+        <input type="button" value="8" class="calculator-button numbers"onclick="appendToDisplay('8')">
+        <input type="button" value="9" class="calculator-button numbers" onclick="appendToDisplay('9')">
+        <br>
+        <input type="button" value="+" class="calculator-button operator" onclick="appendToDisplay('+')">
+        <!--<input type="button" value="" class="calculator-button space">-->
+        <input type="button" value="0" class="calculator-button numbers" onclick="appendToDisplay('0')">
+        <input type="button" value="-" class="calculator-button operator" onclick="appendToDisplay('-')">
+        <br>
+        <input type="button" value="*" class="calculator-button operator" onclick="appendToDisplay('*')">
+        <input type="button" value="/" class="calculator-button operator" onclick="appendToDisplay('/')">
+        <input type="button" value="." class="calculator-button operator" onclick="appendToDisplay('.')">
+        <br>
+        <input type="button" value="%" class="calculator-button operator" onclick="perct(document.getElementById('display').value)">
+        <input type="button" value="^" class="calculator-button operator" onclick="appendToDisplay('^')">
+        <input type="button" value="&radic;" class="calculator-button operator" onclick="calculateSquareRoot()">
+        <br>
+        <input type="button" value="C" class="calculator-button clear" onclick="clearDisplay()">
+        <input type="button" value="X" class="calculator-button del" onclick="deleteLastCharacter()">
+        <input type="button" value="=" class="calculator-button equals" onclick="calculate()">
+        <br>
+        <input type="button" class="calculator-button theme-button" value="Green" onclick="setTheme('default')">
+        <input type="button" class="calculator-button theme-button" value="Blue" onclick="setTheme('theme1')">
+        <input type="button" class="calculator-button theme-button" value="Red" onclick="setTheme('theme2')">
+        <br>
+        <input type="button" value="" class="calculator-button space">
+        <input type="button" class="calculator-button theme-button" value="Mode" onclick="toggleTheme()">
+        <input type="button" value="" class="calculator-button space">
+    </div>
+    </div>
+</div>
+    <script>
+        document.addEventListener("keydown", function (event) {
+        const key = event.key;
+        const display = document.getElementById("display");
+        if (/^\d$/.test(key)) {
+            appendToDisplay(key);
+        }
+        if (key === "+" || key === "-" || key === "*" || key === "/") {
+            appendToDisplay(key);
+        }
+        if (key === "Enter" || key === "=") {
+            calculate();
+        }
+        if (key === "c" || key === "C") {
+            clearDisplay();
+        }
+        });
+        function appendToDisplay(value) {
+            const display = document.getElementById("display");
+            const currentValue = display.value;
+
+            if (value === '^') {
+                    display.value += '**';
+                } 
+            else {
+                display.value += value;
+            }       
+        }
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function calculate() {
+            try {
+                let expression = document.getElementById("display").value;
+                expression = expression.replace(/\^/g, '**');
+                document.getElementById("display").value = eval(expression);
+            } catch (error) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+        function deleteLastCharacter() {
+            var display = document.getElementById("display");
+            var currentValue = display.value;
+            if (currentValue.length > 0) {
+                display.value = currentValue.slice(0, -1);
+            }
+        }
+        function setTheme(theme) {
+            const calculator = document.getElementById("calculator-container");
+            calculator.className = "calculator " + theme;
+        }
+        function calculateSquareRoot(){
+            const display = document.getElementById("display");
+            const currentValue = parseFloat(display.value);
+            if (!isNaN(currentValue) && currentValue >= 0) {
+                display.value = Math.sqrt(currentValue);
+            }
+             else {
+                display.value = "Error";
+            }
+        }
+        function perct(value){
+            const percentage = value / 100;
+            document.getElementById("display").value = percentage;
+        }
+        function toggleTheme() {
+        const calculator = document.getElementById("calculator-container");
+
+         if (calculator.classList.contains("light-mode")) {
+        calculator.classList.remove("light-mode");
+        calculator.classList.add("dark-mode");
+    } else {
+        calculator.classList.remove("dark-mode");
+        calculator.classList.add("light-mode");
+    }
+}
+    </script>
+</body>
+</html>

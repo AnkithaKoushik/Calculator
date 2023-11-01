@@ -1,0 +1,161 @@
+h1 {
+    font-size: 50px; /* Adjust the font size */
+    color: #060006; /* Adjust the font color */
+    text-align: center;
+}
+h2 {
+    font-size: 75px; /* Adjust the font size */
+    color: #3498db; /* Adjust the font color */
+}
+#calculator-container { /* Set the desired width for your calculator */
+/* Horizontally center the calculator */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center the calculator */
+}
+:root {
+
+    background:  linear-gradient(to right, #fffefe, #faeeee);}
+.light-mode {
+    background:  linear-gradient(to right, #fffefe, #faeeee); }
+.dark-mode {
+    background:  linear-gradient(to right, #3c3c3c, #000000);}
+.calculator {
+    #display {
+        width: 485px;
+        font-size: large;
+        height: 100px;
+        color: #005e2c;
+        border: 2px solid #005e2c; /* Replace with your desired border color */
+    }
+    .calculator-button {
+        width: 160px;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 50px;
+        background-color: #47db34;
+        border: 1px solid #fefefe;
+        color: white;
+        font-size: 18px;
+        cursor:pointer;
+        border-radius: 10%;
+    }
+    .calculator-button.space{
+        width: 160px; /* Adjust the width to control the space between buttons */
+        visibility: hidden;
+    }
+    .calculator-button.del {
+        background-color: #e75747; /* Red */
+    }
+    
+    .calculator-button.operator {
+        background-color: #00573d; 
+    }
+    
+    .calculator-button.extra {
+        background-color: #004631; 
+    }
+    
+    .calculator-button.numbers {
+        background-color: #109331; /* Purple */
+    }
+    
+    .calculator-button.clear {
+        background-color: #e67e22; /* Orange */
+    }
+    
+    .calculator-button.equals {
+        background-color: #06a75c; /* Dark Gray */
+    }
+}
+.calculator.theme1 {
+    #display {
+        width: 485px;
+        height: 100px;
+        font-size: large;
+        color: #032658;
+        border: 2px solid #032658; /* Replace with your desired border color */
+    }
+    .calculator-button {
+        width: 160px;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 50px;
+        background-color: #3498db;
+        border: 1px solid #fefefe;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .calculator-button.del {
+        background-color: #e75747; /* Red */
+    }
+    
+    .calculator-button.operator {
+        background-color: #4989e2; 
+    }
+    
+    .calculator-button.extra {
+        background-color: #124085; 
+    }
+    
+    .calculator-button.numbers {
+        background-color: #104f93; /* Purple */
+    }
+    
+    .calculator-button.clear {
+        background-color: #e67e22; /* Orange */
+    }
+    
+    .calculator-button.equals {
+        background-color: #060ba7; /* Dark Gray */
+    }
+}
+
+/* Theme 2 */
+.calculator.theme2 {
+    #display {
+        width: 485px;
+        font-size: large;
+        height: 100px;
+        color: #580303;
+        border: 2px solid #580303; /* Replace with your desired border color */
+    }
+    .calculator-button {
+        width: 160px;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 50px;
+        background-color: #db3434;
+        border: 1px solid #fefefe;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    .calculator-button.del {
+        background-color: #e75747; /* Red */
+    }
+    
+    .calculator-button.operator {
+        background-color: #ed8989; 
+    }
+    
+    .calculator-button.extra {
+        background-color: #851212; 
+    }
+    
+    .calculator-button.numbers {
+        background-color: #931010; /* Purple */
+    }
+    
+    .calculator-button.clear {
+        background-color: #e67e22; /* Orange */
+    }
+    
+    .calculator-button.equals {
+        background-color: #a70606; /* Dark Gray */
+    }
+}
+
